@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>911 Alerts Dashboard</title>
+</head>
+<body>
+    <h1>911 Alerts Dashboard</h1>
+    <div id="alert-container"></div>
+
+    <script>
+        const ws = new WebSocket('ws://localhost:8080');
+
+        ws.onopen = () => {
+            console.log('Connected to WebSocket server.');
+        };
+
+        ws.onmessage = (event) => {
+            const alertMessage = JSON.parse(event.data);
+            console.log('Alert received:', alertMessage);
+            
+            // Display the alert message on the frontend
+            const alertContainer = document.getElementById('alert-container');
+            const alertElement = document.createElement('div');
+            alertElement.innerHTML = `
+                <p><strong>${alertMessage.alert}</strong></p>
+                <p>Location: Latitude ${alertMessage.location.latitude}, Longitude ${alertMessage.location.longitude}</p>
+                <p>Number of Calls: ${alertMessage.count}</p>
+                <p>Highest Priority: ${alertMessage.highestPriority}</p>
+                <p>Types of Incidents: ${alertMessage.types.join(', ')}</p>
+                <hr>
+            `;
+            alertContainer.prepend(alertElement);  // Add the new alert at the top
+        };
+
+        ws.onerror = (error) => {
+            console.error('WebSocket error:', error);
+        };
+
+        ws.onclose = () => {
+            console.log('WebSocket connection closed.');
+        };
+    </script>
+</body>
+</html>
