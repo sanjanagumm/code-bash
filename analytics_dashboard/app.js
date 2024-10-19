@@ -47,7 +47,7 @@ mongoose.connect(MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
                     createdAt: { $gte: thirtySecondsAgo }
                 });
 
-                if (recentCalls.length > 2) {
+                if (recentCalls.length > 4) {
                     const message = {
                         alert: 'High call volume detected!',
                         location: { latitude: newCall.latitude, longitude: newCall.longitude },
@@ -66,8 +66,8 @@ mongoose.connect(MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
             }
         });
 
-        // Generate calls every 100 milliseconds
-        setInterval(generateCalls, 1000);
+        // Generate calls every 50 milliseconds
+        setInterval(generateCalls, 500);
         app.listen(PORT, () => {
             console.log(`Server running on http://localhost:${PORT}`);
         });
