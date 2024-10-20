@@ -2,8 +2,13 @@ const mongoose = require('mongoose');
 const faker = require('faker');
 const express = require('express');
 const WebSocket = require('ws');
+const cors = require('cors'); // Add CORS import
 
 const app = express();
+app.use(cors({
+    origin: '*' // This allows all origins to access the server. You can specify the IP or URL of your frontend instead of '*'.
+})); // Enable CORS for all routes
+
 const PORT = 3000;
 const MONGO_URI = 'mongodb://localhost:2717,localhost:2727,localhost:2737/myDatabase?replicaSet=myset';
 
@@ -20,7 +25,7 @@ const callSchema = new mongoose.Schema({
 const Call = mongoose.model('Call', callSchema);
 
 // WebSocket Setup
-const wss = new WebSocket.Server({ port: 8080 });
+const wss = new WebSocket.Server({ port: 8080, host: '0.0.0.0' });
 
 wss.on('connection', (ws) => {
     console.log('WebSocket connection established.');
@@ -66,7 +71,7 @@ mongoose.connect(MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
             }
         });
 
-        // Generate calls every 50 milliseconds
+        // Generate calls every 500 milliseconds
         setInterval(generateCalls, 500);
         app.listen(PORT, () => {
             console.log(`Server running on http://localhost:${PORT}`);
