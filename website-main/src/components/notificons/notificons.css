@@ -1,0 +1,54 @@
+.notification-icons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: fixed; /* Keeps the icons fixed on the side */
+  top: 30%; /* Adjust this to position vertically */
+  right: 50px; /* Move icons closer to the left side */
+  z-index: 1000; /* Ensures it appears above other elements */
+}
+
+.icon-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 15px 0; /* Increase margin for more spacing between icons */
+  width: 90px; /* Increased width for bigger icons */
+  height: 90px; /* Increased height for bigger icons */
+  border-radius: 50%;
+  padding: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s; /* Smooth transition for hover effect */
+  justify-content: center; /* Center icon and label */
+  background-color: #f8d3d3; /* Light pastel red */
+  font-size: 20px;
+}
+
+/* Alternate pastel colors for different icons */
+.icon-container:nth-child(2) {
+  background-color: #d3f8d3; /* Light pastel green */
+}
+
+.icon-container:nth-child(3) {
+  background-color: #d3d3f8; /* Light pastel blue */
+}
+
+.icon-container:hover {
+  transform: scale(1.1); /* Slightly enlarge on hover */
+}
+
+.icon {
+  font-size: 40px; /* Increased size of the icons */
+  color: black; /* Ensure icon color is black */
+  margin-bottom: 0; /* Remove any bottom margin between the icon and label */
+  padding: 0; /* Ensure no padding is added */
+}
+
+.label {
+  margin-top: 0; /* Remove the top margin */
+  padding-top: 3px; /* Slight padding for breathing room */
+  font-size: 10px;
+  line-height: 1; /* Reduce line height to minimize extra space */
+  text-align: center;
+  white-space: nowrap; /* Prevent label text from wrapping */
+}

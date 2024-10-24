@@ -1,0 +1,50 @@
+/* Container styling for the graph */
+.graph-container {
+  position: relative;
+  width: 100%;
+  max-width: 800px; /* Set a max width to center the graph if needed */
+  height: 400px;
+  margin: 0 auto; /* Center the graph container */
+  background: #ffffff; /* White background for a clean look */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  border-radius: 12px; /* Rounded corners for a smooth look */
+  padding: 20px; /* Padding inside the container */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Custom styling for the tooltip */
+.chartjs-tooltip {
+  background: #ff5733;
+  color: #fff;
+  padding: 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Customize the legend */
+.chart-legend {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.chart-legend-item {
+  margin: 0 15px;
+  font-size: 14px;
+  color: #333;
+  display: flex;
+  align-items: center;
+}
+
+.chart-legend-item::before {
+  content: "";
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  background-color: #ff5733; /* Same as the graph line color */
+  margin-right: 5px;
+  border-radius: 2px; /* Slight rounding for a modern look */
+}

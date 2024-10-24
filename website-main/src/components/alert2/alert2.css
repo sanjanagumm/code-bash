@@ -1,0 +1,11 @@
+.alert2 {
+  font-size: 15px;
+  background-color: rgb(213, 213, 213);
+  border-left: 7px solid red;
+  border-right: 7px solid red;
+  text-align: center;
+  border-radius: 3px;
+  margin-top: 15px;
+  padding: 17px;
+  width: 500px;
+}
