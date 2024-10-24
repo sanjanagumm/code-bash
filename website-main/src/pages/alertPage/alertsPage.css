@@ -1,0 +1,32 @@
+.alert-container {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  box-sizing: border-box;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 20px;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.graph {
+  flex: 1;
+  max-width: 100%;
+  width: 600px;
+}
+
+.alerts {
+  flex: 1;
+}
+
+.alert1-div {
+  text-align: center;
+}
+
+.alert2-div {
+}

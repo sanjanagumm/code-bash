@@ -1,0 +1,36 @@
+.alert1 {
+  background-color: rgb(213, 213, 213);
+  font-size: 20px;
+  font-weight: bold;
+  border-top: 15px solid red;
+  height: 150px;
+  padding: 5px;
+  text-align: center;
+  border-radius: 10px;
+  width: 300px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  transition: opacity 0.5s;
+  padding-bttom: 20px;
+  gap: 2px;
+}
+
+.alert1-icon-div {
+  margin: 10px;
+}
+
+.alert1-icon {
+  color: red;
+  font-size: 60px;
+}
+
+.visible {
+  opacity: 1;
+}
+
+.hidden {
+  opacity: 0;
+}
